@@ -1,6 +1,6 @@
 # omnibus/offline
 
-No carrier, for [omniscient/omnibus](https://github.com/glitchr-studio/omnibus): the shop hands its
+No carrier, for [omnisense/omnibus](https://github.com/glitchr-omnisense/omnibus): the shop hands its
 parcels over itself (its own courier, a post office counter) or keeps them for collection. The
 gateway calls nothing: prices come from the `rates` option, the tracking number is the one the shop
 typed, the pickup points are the shop's own counters (click and collect).
@@ -11,7 +11,7 @@ typed, the pickup points are the shop's own counters (click and collect).
 composer require omnibus/offline
 ```
 
-Requires PHP 8.2 and `omniscient/omnibus` (2.x), nothing else: no HTTP client, no framework. In a
+Requires PHP 8.2 and `omnisense/omnibus` (2.x), nothing else: no HTTP client, no framework. In a
 Symfony application with `Omnibus\Bridge\Symfony\OmnibusBundle`, the factory is registered as soon
 as the package is installed. `OfflineGatewayFactory` is built without an HTTP client.
 
@@ -27,7 +27,7 @@ No option is required: `(new OfflineGatewayFactory())->create()` builds a gatewa
 |---|---|---|---|---|
 | `tracking_url` | ?string | `null` | no | the public tracking page given with each label; `{number}` is replaced by the tracking number, URL-encoded (`rawurlencode`) |
 | `pickup_points` | list | `[]` | no | the shop's counters, returned by every pickup point search (below) |
-| `rates` | list | - | no | the only way this gateway rates ([the rates option](https://github.com/glitchr-studio/omnibus/blob/2.x/docs/configuration.md#the-rates-option)) |
+| `rates` | list | - | no | the only way this gateway rates ([the rates option](https://github.com/glitchr-omnisense/omnibus/blob/2.x/docs/configuration.md#the-rates-option)) |
 
 Each entry of `pickup_points`:
 

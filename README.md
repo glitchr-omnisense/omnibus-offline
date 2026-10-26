@@ -1,13 +1,13 @@
 # omnibus/offline
 
-No carrier, for [omniscient/omnibus](https://github.com/glitchr-studio/omnibus):
+No carrier, for [omnisense/omnibus](https://github.com/glitchr-omnisense/omnibus):
 the shop hands parcels over itself (its own courier, a post office counter) or keeps them for collection.
 
 ```php
 $gateway = (new OfflineGatewayFactory())->create($options);   // the options below
 ```
 
-No framework needed, and no HTTP client: the package requires `omniscient/omnibus` alone and calls
+No framework needed, and no HTTP client: the package requires `omnisense/omnibus` alone and calls
 nothing. In a Symfony application, the same through the bundle's configuration:
 
 ```yaml
