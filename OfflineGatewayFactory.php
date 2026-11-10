@@ -26,6 +26,7 @@ final class OfflineGatewayFactory extends GatewayFactory
         $config->defaults([
             'omnibus.factory_name' => 'offline',
             'omnibus.factory_title' => 'Offline',
+            'omnibus.policy' => __DIR__.'/policy.json',
             'tracking_url' => null,
             'pickup_points' => [],
             'omnibus.action.shipping' => static fn (Config $c) => new ShippingAction($c['tracking_url']),

@@ -153,6 +153,10 @@ omnibus:
                         opening_hours: { 2: [['10:00', '19:00']] } }
 ```
 
+## Usage policy
+
+`policy.json` (named in `composer.json`'s `extra.omnisense.policy`) declares no limit and no restriction: no carrier, no service called. A 429 is a `RateLimitedException`, never retried, and the carrier's next calls wait for its `Retry-After`, unsent. See omnisense/omnibus' [Usage policies and rate limits](https://github.com/glitchr-omnisense/omnibus/blob/2.x/docs/policies.md).
+
 ## Errors
 
 The gateway calls no carrier, so it raises no `CarrierException`. `GetSlip`, `Cancel` and

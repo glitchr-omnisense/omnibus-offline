@@ -1,0 +1,61 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Cannot cast mixed to float\.$#'
+			identifier: cast.double
+			count: 2
+			path: Action/PickupAction.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 8
+			path: Action/PickupAction.php
+
+		-
+			message: '#^Parameter \#1 \$callback of function array_map expects \(callable\(mixed\)\: mixed\)\|null, Closure\(array\)\: array\<array\{string, string\}\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: Action/PickupAction.php
+
+		-
+			message: '#^Parameter \#1 \$callback of function array_map expects \(callable\(mixed\)\: mixed\)\|null, Closure\(array\)\: array\{string, string\} given\.$#'
+			identifier: argument.type
+			count: 1
+			path: Action/PickupAction.php
+
+		-
+			message: '#^Parameter \#2 \$street of class Omnibus\\Model\\Address constructor expects array\<string\>, array\<mixed, mixed\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: Action/PickupAction.php
+
+		-
+			message: '#^Parameter \#7 \$openingHours of class Omnibus\\Model\\PickupPoint constructor expects array\<int, list\<array\{string, string\}\>\>, array\<array\<array\{string, string\}\>\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: Action/PickupAction.php
+
+		-
+			message: '#^Parameter \$phone of class Omnibus\\Model\\Address constructor expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: Action/PickupAction.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: Action/ShippingAction.php
+
+		-
+			message: '#^Parameter \#1 \$points of class Omnibus\\Offline\\Action\\PickupAction constructor expects list\<array\<string, mixed\>\>, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: OfflineGatewayFactory.php
+
+		-
+			message: '#^Parameter \#1 \$trackingUrl of class Omnibus\\Offline\\Action\\ShippingAction constructor expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: OfflineGatewayFactory.php
