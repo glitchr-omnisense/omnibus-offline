@@ -3,6 +3,39 @@
 No carrier, for [omnisense/omnibus](https://github.com/glitchr-omnisense/omnibus):
 the shop hands parcels over itself (its own courier, a post office counter) or keeps them for collection.
 
+## Install and a first call
+
+```sh
+composer require omnibus/offline
+```
+
+No account and no network: this package calls nothing.
+
+```php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use Omnibus\Model\{Address, Parcel, Shipment};
+use Omnibus\Offline\OfflineGatewayFactory;
+
+// No carrier and no network: the shop's own rates (grams => cents) and a tracking number typed by hand.
+$gateway = (new OfflineGatewayFactory())->create([
+    'rates' => [['service' => 'courier', 'label' => 'Courier', 'bands' => [1000 => 690, 30000 => 1290]]],
+    'tracking_url' => 'https://www.laposte.fr/outils/suivre-vos-envois?code={number}',
+]);
+$shipment = new Shipment(
+    new Address('The shop', ['1 rue de Rivoli'], '75001', 'Paris', 'FR'),
+    new Address('Camille Durand', ['12 rue des Juifs'], '67000', 'Strasbourg', 'FR'),
+    [new Parcel(500)],
+    options: ['tracking_number' => '6A12345678901'],
+);
+echo $gateway->rate($shipment)[0]->amount, "\n";        // 690
+echo $gateway->ship($shipment)->trackingNumber, "\n";   // 6A12345678901
+```
+
+## Configuration
+
 ```php
 $gateway = (new OfflineGatewayFactory())->create($options);   // the options below
 ```
